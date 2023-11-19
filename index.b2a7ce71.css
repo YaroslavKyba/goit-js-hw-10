@@ -1,0 +1,2 @@
+select.is-hidden,p.is-hidden,.cat-info.is-hidden{display:none}.loader{width:48px;height:48px;display:inline-block;position:relative}.loader:after,.loader:before{content:"";box-sizing:border-box;width:48px;height:48px;border:2px solid #b73737;border-radius:50%;animation:animloader 2s linear infinite;position:absolute;top:100px;left:0}.loader:after{animation-delay:1s}@keyframes animloader{0%{opacity:1;transform:scale(0)}to{opacity:0;transform:scale(1)}}
+/*# sourceMappingURL=index.b2a7ce71.css.map */
