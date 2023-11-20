@@ -1,6 +1,4 @@
-import axios from 'axios';
-
-import { fetchCatByBreed } from './cat-api.js';
+import { fetchCatByBreed, fetchBreeds } from './cat-api.js';
 import {
   createCatInfoMarkup,
   enableLoader,
@@ -18,18 +16,11 @@ const catInfo = document.querySelector('.cat-info');
 const loader = document.querySelector('.loader');
 const error = document.querySelector('.error');
 
-axios.defaults.baseURL = 'https://api.thecatapi.com/v1';
-
-axios.defaults.headers.common['x-api-key'] =
-  'live_OuioJkLhCWAX9mQcGi1vOIxA2yUtB2ArZJPGUdFxmcpSX2FjDJKMgcT6OoMk4Psj';
-
 disableSelect();
 disableError();
 
-axios
-  .get('/breeds')
+fetchBreeds()
   .then(catsData => {
-    enableLoader();
     const data = catsData.data;
     const dataMarkup = data
       .map(el => `<option value="${el.id}">${el.name}</option>`)
