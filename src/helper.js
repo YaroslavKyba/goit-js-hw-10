@@ -12,6 +12,14 @@ function createCatInfoMarkup(url, name, description, temperament) {
       `;
 }
 
+function createFetchBreedsMarkup(data, select) {
+  const dataMarkup = data
+    .map(({ id, name }) => `<option value="${id}">${name}</option>`)
+    .join('');
+
+  select.innerHTML = dataMarkup;
+}
+
 function enableLoader() {
   loader.classList.remove('is-hidden');
 }
@@ -43,6 +51,7 @@ function disableError() {
 
 export {
   createCatInfoMarkup,
+  createFetchBreedsMarkup,
   enableLoader,
   disableLoader,
   enableSelect,

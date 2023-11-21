@@ -1,6 +1,7 @@
 import { fetchCatByBreed, fetchBreeds } from './cat-api.js';
 import {
   createCatInfoMarkup,
+  createFetchBreedsMarkup,
   enableLoader,
   disableLoader,
   enableSelect,
@@ -21,12 +22,8 @@ disableError();
 
 fetchBreeds()
   .then(catsData => {
-    const data = catsData.data;
-    const dataMarkup = data
-      .map(el => `<option value="${el.id}">${el.name}</option>`)
-      .join('');
-
-    select.innerHTML = dataMarkup;
+    // enableLoader();
+    createFetchBreedsMarkup(catsData.data, select);
   })
   .catch(_ => {
     enableError();
